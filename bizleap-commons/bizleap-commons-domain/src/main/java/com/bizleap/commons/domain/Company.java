@@ -17,7 +17,7 @@ public class Company extends AbstractEntity{
 	private String address,ceo;
 	
 	@OneToMany(mappedBy="workForCompany", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Employee> employeeList=new ArrayList<Employee>();
+	private List<Employee> employeeList;
 	
 	public Company() {
 		super();
@@ -44,8 +44,8 @@ public class Company extends AbstractEntity{
 	}
 	
 	public List<Employee> getEmployeeList() {
-//		if(employeeList==null)
-//			this.employeeList=new ArrayList<Employee>();
+		if(employeeList==null)
+			this.employeeList=new ArrayList<Employee>();
 		return employeeList;
 	}
 

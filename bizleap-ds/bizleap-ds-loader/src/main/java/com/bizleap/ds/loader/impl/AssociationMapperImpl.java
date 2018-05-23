@@ -15,8 +15,8 @@ import com.bizleap.ds.loader.DataManager;
 @Service
 public class AssociationMapperImpl implements AssociationMapper {
 	
-	List<Employee> employeeList=new ArrayList<Employee>();
-	List<Company> companyList=new ArrayList<Company>();
+	List<Employee> employeeList;
+	List<Company> companyList;
 	
 	@Autowired
 	private DataManager dataManager;
@@ -53,6 +53,8 @@ public class AssociationMapperImpl implements AssociationMapper {
 	}
 
 	public List<Employee> getEmployeeList() {
+		if(employeeList==null)
+			this.employeeList=new ArrayList<Employee>();
 		return employeeList;
 	}
 
@@ -61,6 +63,8 @@ public class AssociationMapperImpl implements AssociationMapper {
 	}
 
 	public List<Company> getCompanyList() {
+		if(companyList==null)
+			this.companyList=new ArrayList<Company>();
 		return companyList;
 	}
 

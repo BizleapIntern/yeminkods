@@ -16,8 +16,8 @@ import com.bizleap.ds.loader.DataManager;
 
 @Service("dataManager")
 public class DataManagerImpl implements DataManager {
-	List<Employee> employeeList=new ArrayList<Employee>();
-	List<Company> companyList=new ArrayList<Company>();
+	List<Employee> employeeList;
+	List<Company> companyList;
 	
 	@Autowired
 	private DataLoader dataLoader;
@@ -48,11 +48,15 @@ public class DataManagerImpl implements DataManager {
 
 	@Override
 	public List<Employee> getEmployeeList() {
+		if(employeeList==null)
+			this.employeeList=new ArrayList<Employee>();
 		return employeeList;
 	}
 
 	@Override
 	public List<Company> getCompanyList() {
+		if(companyList==null)
+			this.companyList=new ArrayList<Company>();
 		return companyList;
 	}
 }
